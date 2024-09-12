@@ -10,18 +10,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./src/output.css" rel="stylesheet">
     <title>HOME | YPIIS</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      .active{
+        color: #8A3635;
+        border-bottom: 2px solid #8A3635;
+      }
+      .activenav{
+        backdrop-filter: blur(10px);
+      }
+    </style>
 </head>
-<body style="width: 100vw; height: 100vh;" class="bg-[#E7C7B4]">
-    <header class="text-gray-600 body-font sticky">
+
+<body style="width: 100vw; height: 100vh;" class="bg-[#E7C7B4] relative">
+    <header class="text-gray-600 body-font sticky top-0 z-50">
         <div class="container mx-auto flex flex-wrap p-5 sm:flex-row md:flex-row lg:flex-row items-center">
           <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
             <h1><span class="ml-3 w-full h-full text-3xl font-bold text-[#8A3635]">YPIIS</span></h1>
           </a>
           <nav class="md:ml-auto md:mr-auto flex flex-wrap sm:hidden md:inline lg:inline items-center text-base justify-center">
-            <a class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">Home</a>
-            <a class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">Tentang</a>
-            <a class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">Sekolah</a>
-            <a class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">News</a>
+            <a id="navlinks" href="index.html" class="active md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">Home</a>
+            <a id="navlinks" href="#sekolah" class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">Sekolah</a>
+            <a id="navlinks" href="#visimisi" class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">Visi Misi</a>
+            <a id="navlinks" href="#" class="md:mx-5 lg:mx-10 cursor-pointer tracking-wide hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all">News</a>
           </nav>
           <button class="sm:mx-auto lg:m-0 sm:my-auto md:mr-8 sm:mr-8 lg:mr-0 inline-flex items-center bg-[#8A3635] text-white font-medium border-0 py-2 px-6 tracking-widest text-base mt-4 md:mt-0 hover:text-[#8A3635] hover:bg-white transition-all">Login
           </button>
@@ -29,8 +43,8 @@
     </header>
 
     <!-- HERO -->
-      <section style="width: 100%; height: 100%;">
-        <div class="container mx-auto flex flex-col px-5 py-24 justify-center items-center">
+      <section id="home" style="width: 100%; height: 100%;">
+        <div class="container mx-auto flex flex-col px-5 py-24 justify-center items-center relative">
           <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
             <h1 class="title-font text-7xl mt-28 mb-10 font-bold text-[#8A3635]">Berau Berilmu</h1>
             <p class="mb-16 text-gray-600 leading-relaxed">Yayasan Pendidikan Islam Imam Syafi'i adalah sebuah yayasan  yang bergerak di bidang pendidikan dan juga membantu perkembangan islam di pedalaman</p>
@@ -45,23 +59,23 @@
       <!-- HERO END -->
 
       <!-- Sekolah -->
-      <section class="text-gray-600 body-font bg-white">
+      <section id="sekolah" class="text-gray-600 body-font bg-white relative">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 class="title-font sm:text-4xl lg:text-6xl lg:leading-relaxed tracking-wide  mb-4 font-medium text-gray-900">Lihat Semua
+            <h1 class="title-font sm:text-4xl lg:text-6xl lg:leading-relaxed tracking-wide  mb-4 font-medium text-[#8A3635] hover:text-[#B1973F] transition-all">Lihat Semua
               <br class="hidden lg:inline-block">Sekolah
             </h1>
             <p class="mb-8 leading-relaxed">Kami telah membuat 4 jenjang sekolah sejauh ini yaitu TAUD, SD, SMP, SMA</p>
             <div class="flex justify-center">
               <button class="group w-44 inline-flex text-[#8A3635] bg-none border-2 border-[#8A3635] py-2 px-6 focus:outline-none hover:bg-[#8A3635] hover:text-white rounded text-lg transition-all">Lihat Semua 
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2 my-auto hidden group-hover:inline " viewBox="0 0 24 24">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2 my-auto group-hover:translate-x-2 transition-all duration-75 ease-in-out" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </button>
             </div>
           </div>
           <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex rounded-md shadow-xl shadow-[#A2A2A2]">
-              <div id="slidefoto" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex rounded-md overflow-x-auto snap-x snap-mandatory">
+              <div id="slidefoto" class="sm:w-full md:w-full lg:max-w-lg lg:w-full w-5/6 flex rounded-md overflow-x-auto snap-x snap-mandatory">
                 <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img1" src="src/img/SMPIK-LK.jpeg">
                 <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img2" src="src/img/SMPIK-LK2.jpeg">
                 <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img3" src="src/img/SMPIK-PR.jpeg">
@@ -74,12 +88,12 @@
       <!-- SEKOLAH END -->
 
       <!-- VISI MISI -->
-      <section class="w-full h-full bg-white text-gray-600 flex">
-        <div class="group w-5/6 h-5/6 my-auto mx-auto bg-[#E7C7B4] rounded-2xl flex">
+      <section id="visimisi" class="w-full h-full bg-white text-gray-600 flex">
+        <div class="group sm:h-2/4 w-5/6 lg:h-5/6 my-auto mx-auto bg-[#E7C7B4] rounded-2xl flex">
           <div id="left" class="w-2/4 h-full flex">
-            <div id="let-content" class=" w-full my-auto flex flex-col border-r-2 border-[#A2A2A2] group-hover:border-gray-600 duration-100">
-              <h1 class="title-font lg:text-5xl tracking-wider mb-32 text-[#8A3635] font-medium mx-auto">Visi</h1>
-              <p class="text-2xl text-[#A2A2A2] text-left font-normal leading-relaxed mx-auto mb-20 hover:text-gray-600 duration-75">Membuat agama
+            <div id="let-content" class="group/left w-full my-auto flex flex-col sm:border-r-0 lg:border-r-2 border-[#A2A2A2] group-hover:border-gray-600 duration-100">
+              <h1 class="sm:text-3xl md:text-4xl sm:mb-16 sm:mt-14 title-font lg:text-5xl tracking-wider lg:mb-32 text-[#8A3635] font-medium mx-auto group-hover/left:text-[#B1973F]">Visi</h1>
+              <p class="sm:text-lg lg:text-2xl text-[#A2A2A2] text-left font-normal lg:leading-relaxed mx-auto mb-20 hover:text-gray-600 duration-75">Membuat agama
                 <br>islam di berau makin 
                 <br>mantap dan bersaudara 
                 <br>dan juga membangun pemuda 
@@ -87,9 +101,9 @@
             </div>
           </div>
           <div id="right" class="w-2/4 h-full flex">
-            <div id="right-content" class=" w-full my-auto flex flex-col">
-              <h1 class="title-font lg:text-5xl tracking-wider mb-32 text-[#8A3635] font-medium mx-auto">Misi</h1>
-              <p class="text-2xl text-[#A2A2A2] text-right font-normal leading-relaxed mx-auto mb-20 hover:text-gray-600 duration-75">Membangun yayasan
+            <div id="right-content" class="group/right w-full my-auto flex flex-col">
+              <h1 class="sm:text-3xl md:text-4xl sm:mb-16 sm:mt-14 title-font lg:text-5xl tracking-wider lg:mb-32 text-[#8A3635] font-medium mx-auto group-hover/right:text-[#B1973F]">Misi</h1>
+              <p class="sm:text-lg lg:text-2xl text-[#A2A2A2] text-right font-normal lg:leading-relaxed mx-auto mb-20 hover:text-gray-600 duration-75">Membangun yayasan
                 <br>yang islamable dan tidak
                 <br>berselisih dan juga 
                 <br>mengajarkan anak-anak 
