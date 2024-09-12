@@ -8,15 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script/dom.js"></script>
     <link href="./src/output.css" rel="stylesheet">
     <title>HOME | YPIIS</title>
-    <style>
-      #btn-geser:disabled {
-        /* background-color: gray; */
-        cursor: not-allowed;
-      }
-    </style>
 </head>
 <body style="width: 100vw; height: 100vh;" class="bg-[#E7C7B4]">
     <header class="text-gray-600 body-font sticky">
@@ -68,18 +61,12 @@
             </div>
           </div>
           <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex rounded-md shadow-xl shadow-[#A2A2A2]">
-            <svg id="slide-kanan btn-geser" &raquo; fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="group w-10 h-10 absolute -bottom-2/4 right-32 stroke-white hover:stroke-gray-600" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-            <svg id="slide-kiri btn-geser"  disabled fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 absolute -bottom-2/4 right-auto ml-8 stroke-white hover:stroke-gray-600 transform -scale-x-100" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-              <div id="slide-foto" class="slide-foto lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex rounded-md overflow-x-auto snap-x snap-mandatory">
-                <img class="snap-center object-cover object-center ml-8 ease-in-out" alt="img1" src="src/img/SMPIK-LK.jpeg">
-                <img class="snap-center object-cover object-center ml-8 ease-in-out" alt="img2" src="src/img/SMPIK-LK2.jpeg">
-                <img class="snap-center object-cover object-center ml-8 ease-in-out" alt="img3" src="src/img/SMPIK-PR.jpeg">
-                <img class="snap-center object-cover object-center ml-8 ease-in-out" alt="img4" src="src/img/SDIK.jpeg">
-                <img class="snap-center object-cover object-center ml-8 ease-in-out" alt="img5" src="src/img/TAUD2.jpeg">
+              <div id="slidefoto" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 flex rounded-md overflow-x-auto snap-x snap-mandatory">
+                <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img1" src="src/img/SMPIK-LK.jpeg">
+                <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img2" src="src/img/SMPIK-LK2.jpeg">
+                <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img3" src="src/img/SMPIK-PR.jpeg">
+                <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img4" src="src/img/SDIK.jpeg">
+                <img class="snap-center object-cover object-center ml-4 ease-in-out" alt="img5" src="src/img/TAUD2.jpeg">
               </div>
           </div>
         </div>
@@ -119,5 +106,10 @@
         AOS.init();
       </script>
       <!-- AOS END -->
+
+
+      <!-- SCRIPT -->
+      <script src="script/dom.js"></script>
+      <!-- SCRIPT END -->
 </body>
 </html>
