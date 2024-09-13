@@ -1,6 +1,6 @@
-const nav = document.querySelector("header");
+const nav = document.querySelector("nav");
 window.addEventListener("scroll", function () {
-  this.scrollY > 20
+  this.scrollY > 50
     ? nav.classList.add("activenav")
     : nav.classList.remove("activenav");
 });
@@ -25,3 +25,53 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+const imgContainer = document.getElementById("slidefoto")
+const img = document.querySelector('#image')
+
+imgContainer.addEventListener('scroll', () => {
+    Image.forEach(image => {
+        const rect = image.getBoundingClientRect();
+        const containerRect = imgContainer.getBoundingClientRect();
+
+        const isCentered = rect.left >= containerRect.left + containerRect.width / 4 &&
+                           rect.right <= containerRect.right - containerRect.width / 4;
+
+        if (isCentered) {
+          // Image is centered: animate to full size and full opacity
+          image.classList.add('scale-100', 'opacity-100');
+          image.classList.remove('scale-90', 'opacity-80');
+        } else {
+          // Image is not centered: scale down and lower opacity
+          image.classList.add('scale-90', 'opacity-80');
+          image.classList.remove('scale-100', 'opacity-100');
+        }
+    })
+})
+
+const form = document.getElementById('submitForm');
+const responseMessage = document.getElementById('responseMessage');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault()
+
+    const email = document.getElementById('email')
+    const data = {
+        email: email
+    }
+
+    fetch('https://docs.google.com/spreadsheets/d/1IG9YNpKELfYy-EEIrDu9PsthasjgY4z5PODC0S8BYlE/edit?usp=sharing', {
+        method: 'POST',
+        body : JSON.stringify(data)
+    })
+
+    .then(response => response.text())
+    .then(data => {
+        form.reset();
+        alert("Berhasil");
+    })
+    .catch(error => {
+        console.error('Error', error)
+        alert("Gagal")
+    })
+})
