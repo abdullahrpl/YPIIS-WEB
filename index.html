@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" href="src/img/logo_ypiis.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./src/output.css" rel="stylesheet">
     <title>HOME | YPIIS</title>
@@ -25,47 +26,65 @@
         backdrop-filter: blur(15px);
         border-bottom:  solid 3px #8A3635;
       }
+      .shownav{
+        display: block;
+      }
     </style>
 </head>
 
 <body style="width: 100vw; height: 100vh;" class="bg-[#E7C7B4] relative">       
 
-  <nav class="w-full z-20 transition-all duration-75">
+  <nav class="w-full z-20 transition-all duration-75 fixed">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
         <span class="self-center text-3xl text-[#8A3635] font-bold whitespace-nowrap">YPIIS</span>
        </a>
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button type="button" class="text-white bg-[#8A3635] hover:bg-white hover:text-[#8A3635] tracking-widest font-medium text-md px-4 py-2 text-center transition-all duration-75">Login</button>
-      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden" aria-controls="navbar-sticky" aria-expanded="false">
+      <a href="login.html" id="btn-login" class="text-white bg-[#8A3635] hover:bg-white hover:text-[#8A3635] tracking-widest font-medium text-md px-4 py-2 text-center transition-all duration-75">Login</a>
+      <button onclick="renav()" id="burgerMenu" data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#8A3635] rounded-lg md:hidden" aria-controls="navbar-sticky" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
-    </button>
-  </div>
+      </button>
+    </div>
   <div class="items-center justify-between flex w-full h-10 md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul class="flex justify-evenly h-full items-center">
       <li>
-        <a id="navlinks" href="#home" class="active block mx-10 my-auto font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75" aria-current="page">Home</a>
+        <a id="navlinks" href="#home" class="active block mx-10 my-auto sm:hidden md:block font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75" aria-current="page">Home</a>
       </li>
       <li>
-        <a id="navlinks" href="#sekolah" class="block mx-10 my-auto font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Sekolah</a>
+        <a id="navlinks" href="#sekolah" class="block mx-10 my-auto sm:hidden md:block font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Sekolah</a>
       </li>
       <li>
-        <a id="navlinks" href="#tentang" class="block mx-10 my-auto font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Tentang</a>
+        <a id="navlinks" href="#tentang" class="block mx-10 my-auto sm:hidden md:block font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Tentang</a>
       </li>
       <li>
-        <a id="navlinks" href="#" class="block mx-10 my-auto font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Kegiatan</a>
+        <a id="navlinks" href="#kegiatan" class="block mx-10 my-auto sm:hidden md:block font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Kegiatan</a>
+      </li>
+    </ul>
+    <!-- responsive navbar -->
+    <ul class="flex justify-evenly h-full items-center">
+      <li>
+        <a id="navlinks navres" href="#home" class="active hidden mx-10 my-auto md:hidden font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75" aria-current="page">Home</a>
+      </li>
+      <li>
+        <a id="navlinks navres" href="#sekolah" class="hidden mx-10 my-auto md:hidden font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Sekolah</a>
+      </li>
+      <li>
+        <a id="navlinks navres" href="#tentang" class="hidden mx-10 my-auto md:hidden font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Tentang</a>
+      </li>
+      <li>
+        <a id="navlinks navres" href="#kegiatan" class="hidden mx-10 my-auto md:hidden font-medium hover:text-[#8A3635] hover:border-b-2 border-[#8A3635] transition-all duration-75">Kegiatan</a>
       </li>
     </ul>
   </div>
   </div>
-</nav>
+  </nav>
 
 
     <!-- HERO -->
-      <section id="home" style="width: 100%; height: 100%;">
+      <section id="home" style="width: 100%; height: 100%;" class="bg-center bg-cover">
         <div class="container mx-auto flex flex-col px-5 py-24 justify-center items-center relative">
           <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
             <h1 class="title-font text-7xl mt-28 mb-10 font-bold text-[#8A3635]">Berau Berilmu</h1>
@@ -142,7 +161,7 @@
       <!-- VISI MISI END -->
       
       <!-- YPIIS PENGERTIAN -->
-      <section class="w-full h-1/2 flex">
+      <section class="w-full flex py-10">
         <div class="w-full flex flex-col mx-auto my-auto">
           <h1 class="mx-auto mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">Apa itu <mark class="px-2 text-white bg-[#8A3635] rounded">YPIIS</mark> ?</h1>
           <p class="mx-auto w-5/6 h-full mt-14 text-center text-xl font-normal text-gray-500 lg:text-xl hover:text-gray-600 leading-relaxed"><span class="font-semibold text-xl text-[#8A3635]">YPIIS</span> Yayasan Pendidikan Islam Imam Syafi'i (<span class="font-semibold text-xl text-[#8A3635]">YPIIS</span>) adalah sebuah lembaga yang bergerak di bidang pendidikan dengan dasar ajaran <br> Islam, khususnya mengikuti pemahaman dan ajaran Imam Syafi'i, salah satu dari empat imam besar dalam fiqh Islam. <span class="font-semibold text-xl text-[#8A3635]">YPIIS</span> biasanya <br> bertujuan untuk memberikan pendidikan yang komprehensif, mulai dari pendidikan formal (sekolah, madrasah) hingga pendidikan non-formal (pengajian, kursus), dengan fokus pada pengajaran nilai-nilai Islam yang sejalan dengan mazhab Syafi'i.
@@ -154,7 +173,81 @@
       <!-- TENTANG END -->
 
     <!-- KEGIATAN -->
+    <section id="kegiatan" class="text-gray-600 body-font bg-white mt-10 w-full h-full flex items-center">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl lg:text-6xl font-bold tracking-wide title-font mb-10 text-[#8A3635]">Kegiatan</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Kami menyediakan berbagai kegiatan yang mengenai pembelajaran Islam</p>
+        </div>
+        <div class="flex flex-wrap -m-4 text-center">
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg h-40 hover:-translate-y-2 hover:shadow-lg hover:border-[#8A3635] transition-all duration-75 ease-in-out ">
+              <svg class="w-[48px] h-[48px] text-[#8A3635] mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
+              </svg>              
+              <p class="leading-relaxed font-semibold">Pembelajaran Mengaji</p>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg h-40 hover:-translate-y-2 hover:shadow-lg hover:border-[#8A3635] transition-all duration-75 ease-in-out ">
+              <svg class="w-[48px] h-[48px] text-[#8A3635] mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm-1.5 8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-3Zm6.82-3.096a5.51 5.51 0 0 0-2.797-6.293 3.5 3.5 0 1 1 2.796 6.292ZM19.5 18h.5a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-1.1a5.503 5.503 0 0 1-.471.762A5.998 5.998 0 0 1 19.5 18ZM4 7.5a3.5 3.5 0 0 1 5.477-2.889 5.5 5.5 0 0 0-2.796 6.293A3.501 3.501 0 0 1 4 7.5ZM7.1 12H6a4 4 0 0 0-4 4 2 2 0 0 0 2 2h.5a5.998 5.998 0 0 1 3.071-5.238A5.505 5.505 0 0 1 7.1 12Z" clip-rule="evenodd"/>
+              </svg>              
+              <p class="leading-relaxed font-semibold">Pengajian Islam</p>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg h-40 hover:-translate-y-2 hover:shadow-lg hover:border-[#8A3635] transition-all duration-75 ease-in-out ">
+              <svg class="w-[48px] h-[48px] text-[#8A3635] mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z" clip-rule="evenodd"/>
+              </svg>              
+              <p class="leading-relaxed font-semibold">Kunjungan Pengembangan Islam <br> di Pedalaman</p>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg h-40 hover:-translate-y-2 hover:shadow-lg hover:border-[#8A3635] transition-all duration-75 ease-in-out ">
+              <svg class="w-[48px] h-[48px] text-[#8A3635] mx-auto mb3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z" clip-rule="evenodd"/>
+              </svg>              
+              <p class="leading-relaxed font-semibold">Kegiatan Belajar Mengajar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- KEGIATAN END -->
+
+    <!-- FOOTER -->
+
+
+      <footer class="bg-[#E7C7B4] mt2">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="src/img/logo_ypiis-removebg-preview.png" class="h-16" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#8A3635]">YPIIS</span>
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-[#8A3635] sm:mb-0">
+                    <li>
+                        <a href="#home" class="hover:underline me-4 md:me-6">Home</a>
+                    </li>
+                    <li>
+                        <a href="#sekolah" class="hover:underline me-4 md:me-6">Sekolah</a>
+                    </li>
+                    <li>
+                        <a href="#tentang" class="hover:underline me-4 md:me-6">Tentang</a>
+                    </li>
+                    <li>
+                        <a href="#kegiatan" class="hover:underline">Kegiatan</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-[#8A3635] sm:text-center">© 2023 <a href="index.html" class="hover:underline">YPIIS</a>. All Rights Reserved.</span>
+        </div>
+      </footer>
+    <!-- FOOTER END -->
 
       <!-- AOS -->
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -165,6 +258,7 @@
 
 
       <!-- SCRIPT -->
+      <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       <script src="script/dom.js"></script>
       <!-- SCRIPT END -->
 </body>

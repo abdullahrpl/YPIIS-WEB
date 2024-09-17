@@ -1,3 +1,5 @@
+
+
 const nav = document.querySelector("nav");
 window.addEventListener("scroll", function () {
   this.scrollY > 50
@@ -48,6 +50,26 @@ imgContainer.addEventListener('scroll', () => {
         }
     })
 })
+
+// GET USER
+const user = document.getElementById("btn-login")
+const username = localStorage.getItem('username');
+
+if (username) {
+    user.href = '#'
+    document.getElementById('btn-login').textContent = username;
+}
+// GET USER END
+
+// RESPONSIVE NAVBAR
+const navbarToggler = document.getElementById('burgerMenu');
+const navbarLinks = document.querySelector('#navres');
+
+// function resnav() {
+//     navLinks.classList.add = ('shownav')
+//     if 
+// }
+// RESPONSIVE NAVBAR END
 
 const form = document.getElementById('submitForm');
 const responseMessage = document.getElementById('responseMessage');
