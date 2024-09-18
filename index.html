@@ -90,9 +90,8 @@
             <h1 class="title-font text-7xl mt-28 mb-10 font-bold text-[#8A3635]">Berau Berilmu</h1>
             <p id="responseMessage" class="mb-16 text-gray-600 leading-relaxed">Ayo bergabung untuk  menjadi bagian dari komunitas yang berilmu dan berbudaya</p>
             <form id="submitForm" class="flex w-full justify-center items-end flex-col content-center">
-              <input type="email" id="email" name="hero-field" class="bg-white sm:w-96 md:w-full lg:w-4/5 mx-auto focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 text-center py-1 leading-8 transition-colors duration-200 ease-in-out" placeholder="example@gmail.com" required>
-              <button onclick="email()" id="btnemail" class="mx-auto items-center bg-[#8A3635] text-white font-medium border-0 py-2 px-6 tracking-widest text-base mt-10 hover:text-[#8A3635] hover:bg-white transition-all" type="submit">Bergabung
-              </button>
+              <input type="email" id="email" name="hero-field" class="bg-white sm:w-96 md:w-full lg:w-4/5 mx-auto focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 text-center py-1 leading-8 transition-colors duration-200 ease-in-out" placeholder="example@gmail.com" onsubmit="submitForm(e)" required>
+              <button id="btnemail" class="mx-auto items-center bg-[#8A3635] text-white font-medium border-0 py-2 px-6 tracking-widest text-base mt-10 hover:text-[#8A3635] hover:bg-white transition-all" type="submit">Bergabung</button>
             </form>
           </div>
         </div>

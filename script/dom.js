@@ -31,25 +31,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const imgContainer = document.getElementById("slidefoto")
 const img = document.querySelector('#image')
 
-imgContainer.addEventListener('scroll', () => {
-    Image.forEach(image => {
-        const rect = image.getBoundingClientRect();
-        const containerRect = imgContainer.getBoundingClientRect();
-
-        const isCentered = rect.left >= containerRect.left + containerRect.width / 4 &&
-                           rect.right <= containerRect.right - containerRect.width / 4;
-
-        if (isCentered) {
-          // Image is centered: animate to full size and full opacity
-          image.classList.add('scale-100', 'opacity-100');
-          image.classList.remove('scale-90', 'opacity-80');
-        } else {
-          // Image is not centered: scale down and lower opacity
-          image.classList.add('scale-90', 'opacity-80');
-          image.classList.remove('scale-100', 'opacity-100');
-        }
-    })
-})
 
 // GET USER
 const user = document.getElementById("btn-login")
@@ -61,39 +42,25 @@ if (username) {
 }
 // GET USER END
 
-// RESPONSIVE NAVBAR
-const navbarToggler = document.getElementById('burgerMenu');
-const navbarLinks = document.querySelector('#navres');
-
-// function resnav() {
-//     navLinks.classList.add = ('shownav')
-//     if 
-// }
-// RESPONSIVE NAVBAR END
-
+// DAFTAR
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwNQV8OjOKVDGWKmwb_4SRNt7VIIjOadmr0w7-VLecU_eQjBFqpVa4GKcQFvBcCdiE/exec';
+            
 const form = document.getElementById('submitForm');
-const responseMessage = document.getElementById('responseMessage');
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault()
+form.addEventListener('submit', e => {
+  e.preventDefault(); // Mencegah form dikirim dengan cara biasa
 
-    const email = document.getElementById('email')
-    const data = {
-        email: email
-    }
+  const email = document.getElementById('email').value;
 
-    fetch('https://docs.google.com/spreadsheets/d/1IG9YNpKELfYy-EEIrDu9PsthasjgY4z5PODC0S8BYlE/edit?usp=sharing', {
-        method: 'POST',
-        body : JSON.stringify(data)
-    })
-
-    .then(response => response.text())
-    .then(data => {
-        form.reset();
-        alert("Berhasil");
-    })
-    .catch(error => {
-        console.error('Error', error)
-        alert("Gagal")
-    })
-})
+  // Kirim data ke Google Sheets
+  fetch(scriptURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'email': email }),
+  })
+  .then(response => {
+    alert('Selamat Anda Sudah Bergabung!');
+    form.reset();
+  })
+  .catch(error => console.error('Error!', error.message));
+});
